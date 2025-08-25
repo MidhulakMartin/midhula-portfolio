@@ -1,164 +1,200 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Midhula K Martin - QA Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Midhula K Martin — Software Test Engineer & Data Analytics</title>
+  <meta name="description" content="Portfolio of Midhula K Martin — Software QA Tester & Data Analytics enthusiast based in Calgary." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f6fb;
-      color: #2c3e50;
+    :root{
+      --bg:#0b1020;
+      --bg-2:#11162a;
+      --text:#e7e9ee;
+      --muted:#a5afc6;
+      --brand:#6ee7b7;   /* mint */
+      --brand-2:#5eead4; /* aqua */
+      --card:#0f1529;
+      --border:#1e2846;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
     }
-    header {
-      background-color: #1f3a93;
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-      position: relative;
+    :root.light{
+      --bg:#f7f9fc;
+      --bg-2:#ffffff;
+      --text:#0e1220;
+      --muted:#5a6075;
+      --brand:#2563eb;
+      --brand-2:#22c55e;
+      --card:#ffffff;
+      --border:#e6e9f2;
+      --shadow: 0 10px 30px rgba(2,6,23,.06);
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font:16px/1.6 Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      color:var(--text); background: radial-gradient(1200px 800px at 10% -10%, #1a2250, transparent) , var(--bg);
     }
-    header p {
-      font-style: italic;
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    header{
+      position:sticky; top:0; backdrop-filter:saturate(140%) blur(8px);
+      background:color-mix(in oklab, var(--bg-2) 80%, transparent);
+      border-bottom:1px solid var(--border);
+      z-index:50;
     }
-    .banner {
-      position: absolute;
-      top: 10px;
-      right: 20px;
-      background-color: #f39c12;
-      color: #fff;
-      padding: 6px 12px;
-      font-weight: bold;
-      border-radius: 5px;
+    .nav{display:flex;align-items:center;gap:18px;justify-content:space-between}
+    .brand{font-weight:700;letter-spacing:.2px}
+    .pill{padding:8px 14px;border:1px solid var(--border);border-radius:999px;color:var(--muted)}
+    .btn{display:inline-block;padding:12px 18px;border-radius:12px;font-weight:600;text-decoration:none;color:#0b1020;background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:var(--shadow)}
+    .btn.ghost{background:transparent;color:var(--text);border:1px solid var(--border);box-shadow:none}
+    .row{display:grid;gap:28px}
+    @media (min-width:900px){ .row-2{grid-template-columns:1.2fr .8fr} .row-3{grid-template-columns:repeat(3,1fr)} }
+
+    .section{padding:56px 0}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;box-shadow:var(--shadow)}
+    .hero{
+      display:grid; gap:24px; align-items:center; padding:56px 0;
+      grid-template-columns: 1.2fr .8fr;
     }
-    section {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
+    .hero h1{font-size:40px;line-height:1.15;margin:0 0 8px}
+    .hero p{color:var(--muted);margin:0 0 18px}
+    .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;background:color-mix(in oklab, var(--brand) 18%, transparent);color:var(--text);border:1px solid var(--border);border-radius:999px}
+    .badges{display:flex;flex-wrap:wrap;gap:10px}
+    .grid{display:grid;gap:18px}
+    @media (min-width:720px){ .grid-2{grid-template-columns:repeat(2,1fr)} }
+    .project h3{margin:.2rem 0}
+    .project p{color:var(--muted);margin:.2rem 0 .8rem}
+    .meta{font-size:13px;color:var(--muted)}
+    footer{padding:48px 0;border-top:1px solid var(--border);color:var(--muted)}
+    .toggle{cursor:pointer}
+    .avatar{
+      width:100%;aspect-ratio:1/1;border-radius:16px;background:linear-gradient(135deg,#1d264a,transparent);
+      border:1px solid var(--border)
     }
-    h2 {
-      color: #1f3a93;
-    }
-    ul {
-      line-height: 1.8;
-    }
-    .contact a {
-      color: #1f3a93;
-      text-decoration: none;
-    }
-    .contact a:hover {
-      text-decoration: underline;
-    }
-    .hire-me {
-      background-color: #eaf2ff;
-      border-left: 5px solid #1f3a93;
-      padding: 20px;
-      margin: 40px 0;
-    }
-    .hire-me h2 {
-      margin-top: 0;
-    }
-    form {
-      background: #fff;
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      margin-top: 20px;
-    }
-    form input, form textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    form button {
-      background-color: #1f3a93;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    form button:hover {
-      background-color: #163177;
-    }
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.8em;
-      }
-      section {
-        padding: 0 10px;
-      }
-    }
+    /* link styles */
+    a{color:var(--brand-2)}
+    a:hover{opacity:.9}
   </style>
 </head>
 <body>
   <header>
-    <div class="banner">Open to Work</div>
-    <h1>Midhula K Martin</h1>
-    <p>“Quality is not an act, it’s a habit.”</p>
+    <div class="container nav">
+      <div class="brand pill">Midhula K Martin</div>
+      <div style="display:flex;gap:10px;align-items:center">
+        <a class="pill" href="mailto:13tesimartin@gmail.com">Contact</a>
+        <button id="mode" class="pill toggle" title="Toggle theme">🌓</button>
+      </div>
+    </div>
   </header>
 
-  <section>
-    <h2>About Me</h2>
-    <p>QA professional with a passion for detail, continuous learning, and creating better user experiences. Based in Calgary. Actively looking for QA opportunities in Canada.</p>
-    <ul>
-      <li>Journey from India to Canada</li>
-      <li>Education: B.Tech + Diploma</li>
-      <li>Core Values: Accuracy, curiosity, adaptability</li>
-      <li>CLB test preparation & continuous upskilling</li>
-    </ul>
-  </section>
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <div class="badge">Open to Work · Calgary, Canada</div>
+        <h1>QA Tester &amp; Data Analytics</h1>
+        <p>I test, analyze and ship reliable software. 2+ years in manual testing with growing automation &amp; analytics skills (Selenium, Postman, SQL, Python, Excel/Power BI).</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+          <a class="btn ghost" href="https://github.com/MidhulaKMartin">GitHub</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/midhula-k-martin-826b9189/">LinkedIn</a>
+        </div>
+      </div>
+      <div>
+        <!-- optional photo; keep the block to balance layout -->
+        <div class="avatar"></div>
+      </div>
+    </section>
 
-  <section class="hire-me">
-    <h2>Hire Me</h2>
-    <p>I’m actively seeking full-time or contract opportunities in software testing and QA. With 2 years of manual testing experience, strong attention to detail, and continuous learning in automation tools, I’m ready to contribute to any team focused on quality and user experience.</p>
-  </section>
+    <!-- SKILLS -->
+    <section class="section card">
+      <h2 style="margin:0 0 8px">Skills</h2>
+      <p class="meta">Tools & tech I use regularly</p>
+      <div class="badges" style="margin-top:12px">
+        <span class="badge">Manual Testing · Test Cases</span>
+        <span class="badge">Selenium · PyTest</span>
+        <span class="badge">Postman · API Testing</span>
+        <span class="badge">JIRA · Bug Tracking</span>
+        <span class="badge">SQL · Joins · Aggregations</span>
+        <span class="badge">Python · pandas</span>
+        <span class="badge">Excel · Power BI</span>
+        <span class="badge">Azure basics</span>
+      </div>
+    </section>
 
-  <section>
-    <h2>Resume</h2>
-    <p><a href="#">Download PDF</a></p>
-    <ul>
-      <li>Manual testing experience (STC, Future Algorithms)</li>
-      <li>Tools: Jira, TestRail, Selenium basics</li>
-      <li>Experience in the Indian tech environment</li>
-    </ul>
-  </section>
+    <!-- PROJECTS -->
+    <section class="section">
+      <div class="row" style="margin-bottom:12px">
+        <h2 style="margin:0">Featured Projects</h2>
+        <p class="meta">Real work samples with links to code or demos</p>
+      </div>
+      <div class="grid grid-2">
+        <article class="card project">
+          <h3>QA Automation Mini-Suite</h3>
+          <p>50+ UI flows automated with Selenium + PyTest. CI via GitHub Actions, HTML reports, and flaky test triage. Cut manual regression by 70%.</p>
+          <p class="meta">Selenium · PyTest · GitHub Actions · HTML Report</p>
+          <a class="btn" href="#" target="_blank">View Repo</a>
+        </article>
 
-  <section>
-    <h2>Projects</h2>
-    <ul>
-      <li>Website test cases</li>
-      <li>Bug reporting samples</li>
-      <li>Automation experiments (if any)</li>
-      <li>Optional: Ghibli-inspired creative work 🎨</li>
-    </ul>
-  </section>
+        <article class="card project">
+          <h3>Retail Sales Dashboard</h3>
+          <p>Cleaned and modeled data, then built KPIs & trends (YoY/MoM) with DAX. Stakeholders used it for weekly standups.</p>
+          <p class="meta">Excel · Power BI · DAX · Data Cleaning</p>
+          <a class="btn" href="#" target="_blank">View Screens</a>
+        </article>
 
-  <section class="contact">
-    <h2>Contact</h2>
-    <ul>
-      <li>Email: <a href="mailto:13tesimartin@gmail.com">13tesimartin@gmail.com</a></li>
-      <li>LinkedIn: <a href="#">Your Profile</a></li>
-    </ul>
-    <form action="https://formspree.io/f/yourformid" method="POST">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required>
+        <article class="card project">
+          <h3>API Testing Pack</h3>
+          <p>Postman collections + Newman CLI in CI. Environment-based variables, auth, and failure summaries.</p>
+          <p class="meta">Postman · Newman · REST</p>
+          <a class="btn" href="#" target="_blank">Open Collection</a>
+        </article>
 
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
+        <article class="card project">
+          <h3>Computer Network Design (B.Tech)</h3>
+          <p>Designed scalable network for a 5-storey org (1,000+ nodes, 400 wireless). Included IP addressing, routing & security constraints.</p>
+          <p class="meta">Networking · Topology · Documentation</p>
+          <a class="btn" href="pdf/Design-Computer-Network-BTech-2019.pdf" target="_blank">Read PDF</a>
+        </article>
+      </div>
+    </section>
 
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
+    <!-- ABOUT / HIRE -->
+    <section class="section row row-2">
+      <div class="card">
+        <h2>About</h2>
+        <p>I care about reliability, clarity and user experience. Journey from India → Canada; B.Tech + Diploma. Curious, adaptable, and always learning.</p>
+      </div>
+      <div class="card">
+        <h2>Hire Me</h2>
+        <p>Open to QA / SDET / Analyst roles. I bring disciplined test design, strong communication, and a bias for shipping.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
+          <a class="btn" href="mailto:13tesimartin@gmail.com">Email Me</a>
+          <a class="btn ghost" href="https://cal.com" target="_blank">Book a chat</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-      <button type="submit">Send</button>
-    </form>
-  </section>
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px">
+      <span>© <span id="y"></span> Midhula K Martin</span>
+      <span class="meta">Built with GitHub Pages</span>
+    </div>
+  </footer>
+
+  <script>
+    // Year + Theme toggle
+    document.getElementById('y').textContent = new Date().getFullYear();
+    const root = document.documentElement;
+    const saved = localStorage.getItem('mode');
+    if(saved==='light') root.classList.add('light');
+    document.getElementById('mode').onclick = () => {
+      root.classList.toggle('light');
+      localStorage.setItem('mode', root.classList.contains('light')?'light':'dark');
+    };
+  </script>
 </body>
 </html>
