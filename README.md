@@ -32,7 +32,6 @@ I test, analyze, and deliver reliable software. With 2+ years in **manual testin
 
 ## 🚀 Continuous Learning  
 - 🎓 Junior Data Analyst Program – *NPower Canada (Aug–Dec 2025)*  
-- 📚 Data Management & Analytics – *Bow Valley College (Fall 2025)*  
 - 🔬 Exploring AI/ML & Cloud with Python  
 
 ---
